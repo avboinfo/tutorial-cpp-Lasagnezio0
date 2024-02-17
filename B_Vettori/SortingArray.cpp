@@ -13,6 +13,7 @@ const string FILENAME = "SortingArray.txt";
 
 int numeroScambi;
 
+
 void stampaVettore( string v[], int l ) {
     cout << endl;
     for (int i=0; i<l; i++) cout << v[i] << "\n";
