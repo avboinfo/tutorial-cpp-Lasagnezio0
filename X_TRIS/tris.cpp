@@ -64,7 +64,15 @@ private:
     }
 
     int controlla_riga(int rig){
-
+        int acc_uno = 0;
+        int acc_due = 0;
+        for(int i = 0; i < 3; i++){
+            int cella = griglia[rig][i];
+            if(cella == 1) ++acc_uno;
+            else if(cella == 2) ++acc_due;
+        }
+        if(acc_uno == 3) return 1;
+        else if(acc_due == 3) return 2;
     }
 
     int controlla_diagonale(){
