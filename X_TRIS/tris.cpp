@@ -46,6 +46,10 @@ public:
         griglia[x][y] = 2;
         return true;
     }
+
+    int controlla_vincitore(){
+        
+    }
 };
 
 int main(int argc, char const *argv[]){
