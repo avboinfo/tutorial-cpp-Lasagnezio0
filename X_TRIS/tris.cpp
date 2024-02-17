@@ -78,6 +78,18 @@ private:
     int controlla_diagonale(){
 
     }
+
+    int controlla_vincitore(){
+        int risultato;
+        for(int i = 0; i < 3; i++){
+            risultato = controlla_colonna(i);
+            if(risultato != 0) return risultato;
+
+            risultato = controlla_riga(i);
+            if(risultato != 0) return risultato;
+
+        }
+    }
 };
 
 int main(int argc, char const *argv[]){
