@@ -50,6 +50,18 @@ public:
     int controlla_vincitore(){
         
     }
+private:
+    int controlla_colonna(int col){
+
+    }
+
+    int controlla_riga(int rig){
+
+    }
+
+    int controlla_diagonale(){
+
+    }
 };
 
 int main(int argc, char const *argv[]){
