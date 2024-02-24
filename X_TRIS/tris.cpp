@@ -56,9 +56,9 @@ public:
             risultato = controlla_riga(i);
             if(risultato != 0) return risultato;
 
-            risultato = controlla_diagonale();
-            if(risultato != 0) return risultato;
         }
+        risultato = controlla_diagonale();
+        if(risultato != 0) return risultato;
     }
 private:
     int controlla_colonna(int col){
