@@ -11,22 +11,24 @@ using namespace std;
 
 class Tris{
 public:
-    int griglia[3][3];
+    char griglia[3][3];
 
     void reset_tab(){
         for(int i=0; i < 3; i++){
             for(int j = 0; j < 3; j++){
-                griglia[i][j] = 0;
+                griglia[i][j] = ' ';
             }
         }
     }
 
     void stampa_griglia(){
-        for(int i =0; i < 3; i++){
-            for(int j = 0; j < 3; j++){
-                cout << griglia[i][j] << "\t";
+        cout << "------------- " << endl;
+        for (int i = 0; i < 3; i++) {
+            cout << "| ";
+            for (int j = 0; j < 3; j++) {
+                cout << griglia[i][j] << " | ";
             }
-            cout << endl;
+            cout << endl << "-------------" << endl;
         }
     }
     bool giocatore_uno(int x, int y){
@@ -34,7 +36,7 @@ public:
         if( y > 2 || y < 0) return false;
         if(griglia[x][y] == 1 || griglia[x][y] == 2) return false;
         // se un false è vero, allora return false e esce fuori
-        griglia[x][y] = 1;
+        griglia[x][y] = 'X';
         return true;
     }
     
@@ -43,7 +45,7 @@ public:
         if( y > 2 || y < 0) return false;
         if(griglia[x][y] == 1 || griglia[x][y] == 2) return false;
         // se un false è vero, allora return false e esce fuori
-        griglia[x][y] = 2;
+        griglia[x][y] = 'O';
         return true;
     }
 
@@ -57,8 +59,11 @@ public:
             if(risultato != 0) return risultato;
 
         }
-        risultato = controlla_diagonale();
-        if(risultato != 0) return risultato;
+        /*risultato = controlla_diagonale();
+        return risultato;*/
+        
+        // compatto riga 60, 61
+        return controlla_diagonale();
     }
 private:
     int controlla_colonna(int col){
@@ -98,6 +103,7 @@ private:
         if(acc_uno == 3) return 1;
         else if(acc_due == 3) return 2;
 
+        //check diagonale secondaria
         acc_uno = 0;
         acc_due = 0;
         for(int i = 0; i < 3; i++){
@@ -108,8 +114,9 @@ private:
         if(acc_uno == 3) return 1;
         else if(acc_due == 3) return 2;
 
+        // nessuno ha vinto, gg
         return 0;
-}
+    }
 
 };
 
@@ -128,19 +135,20 @@ int main(int argc, char const *argv[]){
     while(mosse_totali < 9){
         do{
         cout << "gioca moosa del giocatore uno -->" << endl;
-        cout << "coordinata [x] "; cin >> y; cout << "coordinata [y] "; cin >> x;
+        cout << "coordinata [x] "; cin >> x; cout << "coordinata [y] "; cin >> y;
         mossa_valida = MyTris.giocatore_uno(x, y);
         } while(!mossa_valida);
         MyTris.stampa_griglia();
 
         vincitore = MyTris.controlla_vincitore();
         if(vincitore != 0) break;
+        // controlla pareggio
         mosse_totali++;
         if(mosse_totali == 9) break;
 
         do{
         cout << "gioca moosa del giocatore due -->" << endl;
-        cout << "coordinata [x] "; cin >> y; cout << "coordinata [y] "; cin >> x;
+        cout << "coordinata [x] "; cin >> x; cout << "coordinata [y] "; cin >> y;
         mossa_valida2 = MyTris.giocatore_due(x, y); 
         } while(!mossa_valida2);
         MyTris.stampa_griglia();
