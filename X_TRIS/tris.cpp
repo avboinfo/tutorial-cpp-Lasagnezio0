@@ -134,7 +134,7 @@ int main(int argc, char const *argv[]){
     
     while(mosse_totali < 9){
         do{
-        cout << "gioca moosa del giocatore uno -->" << endl;
+        cout << "gioca mossa del giocatore uno -->" << endl;
         cout << "coordinata [x] "; cin >> x; cout << "coordinata [y] "; cin >> y;
         mossa_valida = MyTris.giocatore_uno(x, y);
         } while(!mossa_valida);
@@ -147,7 +147,7 @@ int main(int argc, char const *argv[]){
         if(mosse_totali == 9) break;
 
         do{
-        cout << "gioca moosa del giocatore due -->" << endl;
+        cout << "gioca mossa del giocatore due -->" << endl;
         cout << "coordinata [x] "; cin >> x; cout << "coordinata [y] "; cin >> y;
         mossa_valida2 = MyTris.giocatore_due(x, y); 
         } while(!mossa_valida2);
