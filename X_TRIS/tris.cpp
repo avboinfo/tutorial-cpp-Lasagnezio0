@@ -1,7 +1,7 @@
 /*
 * Se in griglia c'è ZERO --> spazio vuoto
-* Se in griglia c'è UNO --> X
-* Se in griglia c'è DUE --> O
+* Dondi Alessandro 3CIN 25/02/2024
+* Tris versione FINALE
 */
 
 #include <iostream>
