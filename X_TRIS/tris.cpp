@@ -34,7 +34,7 @@ public:
     bool giocatore_uno(int x, int y){
         if( x > 2 || x < 0) return false;
         if( y > 2 || y < 0) return false;
-        if(griglia[x][y] == 1 || griglia[x][y] == 2) return false;
+        if(griglia[x][y] == 'X' || griglia[x][y] == 'O') return false;
         // se un false è vero, allora return false e esce fuori
         griglia[x][y] = 'X';
         return true;
@@ -43,7 +43,7 @@ public:
     bool giocatore_due(int x, int y){
         if( x > 2 || x < 0) return false;
         if( y > 2 || y < 0) return false;
-        if(griglia[x][y] == 1 || griglia[x][y] == 2) return false;
+        if(griglia[x][y] == 'X' || griglia[x][y] == 'O') return false;
         // se un false è vero, allora return false e esce fuori
         griglia[x][y] = 'O';
         return true;
@@ -71,8 +71,8 @@ private:
         int acc_due = 0;
         for(int i = 0; i < 3; i++){
             int cella = griglia[i][col];
-            if(cella == 1) ++acc_uno;
-            else if(cella == 2) ++acc_due;
+            if(cella == 'X') ++acc_uno;
+            else if(cella == 'O') ++acc_due;
         }
         if(acc_uno == 3) return 1;
         else if(acc_due == 3) return 2;
@@ -84,8 +84,8 @@ private:
         int acc_due = 0;
         for(int i = 0; i < 3; i++){
             int cella = griglia[rig][i];
-            if(cella == 1) ++acc_uno;
-            else if(cella == 2) ++acc_due;
+            if(cella == 'X') ++acc_uno;
+            else if(cella == 'O') ++acc_due;
         }
         if(acc_uno == 3) return 1;
         else if(acc_due == 3) return 2;
@@ -97,8 +97,8 @@ private:
         int acc_due = 0;
         for(int i = 0; i < 3; i++){
             int cella = griglia[i][i];
-            if(cella == 1) ++acc_uno;
-            else if(cella == 2) ++acc_due;
+            if(cella == 'X') ++acc_uno;
+            else if(cella == 'O') ++acc_due;
         }
         if(acc_uno == 3) return 1;
         else if(acc_due == 3) return 2;
@@ -108,8 +108,8 @@ private:
         acc_due = 0;
         for(int i = 0; i < 3; i++){
             int cella = griglia[i][2 - i];
-            if(cella == 1) ++acc_uno;
-            else if(cella == 2) ++acc_due;
+            if(cella == 'X') ++acc_uno;
+            else if(cella == 'O') ++acc_due;
         }
         if(acc_uno == 3) return 1;
         else if(acc_due == 3) return 2;
