@@ -1,8 +1,9 @@
 // ESEGUIBILE SOLO IN AMBIENTI DI SVILUPPO AVENTI LA POSSIBILITà DI USARE WINDOWS.H, AD ESEMPIO CODEBLOCKS
+// SE VOLETE ESRGUIRE, TOGLIERE IL COMMENTO A RIGA 6 ED A RIGA 53
 
 #include <iostream>
 #include <stdio.h>
-#include <windows.h>
+//#include <windows.h>
 #include <fstream>
 #include <vector>
 
@@ -49,7 +50,7 @@ void playSong(vector<chord> song){
     int lunghezza = song.size();
     for(int i = 0; i < lunghezza; i++){
         float f = getFrequency(song[i].nota);
-        Beep(f, song[i].durata);
+        //Beep(f, song[i].durata);
     }
 }
 
