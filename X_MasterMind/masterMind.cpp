@@ -34,6 +34,18 @@ private:
         }
     }
 
+    bool check(){
+        int ball = 0;
+        int strike = 0;
+        for(int j = 0; j < DIM_VALID_MOVE; j++){
+            for(int i = 0; i < DIM_VALID_MOVE; i++){
+                if(valid_move[i] == secret_code[i]) strike++;
+                if(valid_move[j] == secret_code[i]) ball++;
+            }
+
+        }
+    }
+
 public:
 
     masterMind(){
