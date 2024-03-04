@@ -42,8 +42,8 @@ private:
                 if(valid_move[i] == secret_code[i]) strike++;
                 if(valid_move[j] == secret_code[i]) ball++;
             }
-
         }
+        return ball;
     }
 
 public:
