@@ -8,6 +8,9 @@
 
 using namespace std;
 
+/* private da un "information hiding" oppure in italiano è "incapsulamento": 
+*/
+
 class Vettore {
     
     protected: // si riferisce agli attributi subito dopo, sono 
@@ -38,6 +41,14 @@ class Vettore {
             ++len;
         }
 
+        int getElement(int index){
+            return v[index];
+        }
+
+        void setElement(int index, int newValue){
+            v[index] = newValue;
+        }
+
         void print(){
             cout << "contenuto del vettore: ";
             for( int i = 0; i < len; ++i) cout << v[i] << " ";
@@ -51,7 +62,11 @@ class Vettore {
 int main(int argc, char const *argv[])
 {
     Vettore vett(10, 2); //primo argomento è lunghezza vettore, il secondo è quanto si deve aggiungere ogni volta
-    for(int i = 0; i < 100; i++)vett.add(33 * i);
+    for(int i = 0; i < 100; i++)vett.add(i);
+    
+    cout << vett.getElement(10) << endl; // stampa il numero del vettore 
+    vett.setElement(7,100000);
     vett.print();
+
     return 0;
 }
