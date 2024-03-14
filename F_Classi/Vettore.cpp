@@ -14,6 +14,10 @@ using namespace std;
 class Vettore {
     
     protected: // si riferisce agli attributi subito dopo, sono 
+    //modificatori di visibilità:
+    //privato --> lo può leggere o scrivere solo i metodi della classe
+    // pubblico --> possono scrivere o leggere sia dentro che fuori alla classe
+    // protetti --> lo possono leggere o scrivere sia le classi che le sottoclassi
     int dim, len, delta, agg = 0;
     int *v;
 
@@ -37,7 +41,7 @@ class Vettore {
                 v = nuovov;
                 agg++;
             }
-            v[len] = n;
+            v[len] = n; 
             ++len;
         }
 

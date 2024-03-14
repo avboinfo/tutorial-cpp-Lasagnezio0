@@ -27,6 +27,7 @@ class Bicicletta {
     }
 };
 
+
 int main()
 {
     Bicicletta x;
