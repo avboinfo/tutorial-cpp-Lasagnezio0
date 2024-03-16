@@ -76,10 +76,16 @@ class Orario{
 int main(){
     int sec1, sec2, differenza = 0;
     std::string orario1, orario2;
-    Orario O1(-2,42,31, "primo");
-    Orario O2(14,61,59, "secondo");
+    Orario O1(14,42,31, "primo");
+    Orario O2(23,23,59, "secondo");
     O1.controlloOrario();
     O2.controlloOrario();
+    
+    //ESEMPIO DEL CONTROLLO DA RIGA 16 A RIGA 48
+    /*Orario O3(25,62,71, "terzo");
+    O3.controlloOrario();
+    std::string orario3 = O3.orarioStringa();
+    std::cout << "terzo orario " << orario3 << std::endl;*/
     
     orario1 = O1.orarioStringa();
     orario2 = O2.orarioStringa();
