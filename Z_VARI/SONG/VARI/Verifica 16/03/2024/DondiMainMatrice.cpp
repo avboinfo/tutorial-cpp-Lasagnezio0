@@ -53,4 +53,6 @@ int main(){
         cin >> ext;
     }
     cout << "grazie per l'utilizzo ed arrivederci"<<endl;
+
+    return 0;
 }
