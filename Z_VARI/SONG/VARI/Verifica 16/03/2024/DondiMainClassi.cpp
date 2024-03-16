@@ -74,10 +74,13 @@ class Orario{
 };
 
 int main(){
+    
     int sec1, sec2, differenza = 0;
     std::string orario1, orario2;
+    
     Orario O1(14,42,31, "primo");
     Orario O2(23,23,59, "secondo");
+    
     O1.controlloOrario();
     O2.controlloOrario();
     
