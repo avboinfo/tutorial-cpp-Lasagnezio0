@@ -20,7 +20,7 @@ private:
             if(c >= '0' && c <= '9'){
                 valid_move[i] = c - '0';
             } else if(c == '-'){
-                valid_move[i] = -1;
+                valid_move[i] = -1; // il trattino viene convertito in -1
             }else return false;
         }
         return true;
@@ -34,16 +34,30 @@ private:
         }
     }
 
-    bool check(){
+    void check(){
         int ball = 0;
         int strike = 0;
+        int copy_secret[DIM_VALID_MOVE];
+        //copio il vettore risposta affinchè esso non venga modificato
+        for(int z = 0; z < DIM_VALID_MOVE; z++){
+            copy_secret[z] = secret_code[z];
+        }
+        
+        // controllo ball e strike
         for(int j = 0; j < DIM_VALID_MOVE; j++){
             for(int i = 0; i < DIM_VALID_MOVE; i++){
-                if(valid_move[i] == secret_code[i]) strike++;
-                if(valid_move[j] == secret_code[i]) ball++;
+                if(valid_move[i] == copy_secret[i]){
+                    strike++;
+                    copy_secret[i] = -2;
+                    continue;
+                }
+                if(valid_move[j] == copy_secret[i]){
+                    ball++;
+                    copy_secret[i] = -2;
+                }
             }
         }
-        return ball;
+        std::cout << "strike[" << strike << "]          ball[" << ball << "]" << std::endl;
     }
 
 public:
