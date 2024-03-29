@@ -12,6 +12,13 @@ int sommaRicorsiva(int n1, int n2){
     }while(n1 != n2);
 }
 
+
+int sommaNumGallo(int n, int m){
+    if(n > m ) return 0;
+    if(n == m) return m;
+    return m + sommaNumGallo(n, m - 1);
+}
+
 int main(){
     int m, n, somma;
     m = n = somma = 0;
@@ -25,6 +32,9 @@ int main(){
 
     somma = sommaRicorsiva(m,n);
     std::cout << "La somma tra i numeri compresi tra i due numeri è " << somma << std::endl;
+    
+    /*somma = sommaNumGallo(m,n);
+    std::cout << "La somma(la versione prof) tra i numeri compresi tra i due numeri è " << somma << std::endl;*/ 
     
     return 0;
 }
