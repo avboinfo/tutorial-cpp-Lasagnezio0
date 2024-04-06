@@ -26,6 +26,10 @@ class Ufficio{
     }
 
     void chiamataUtente(char categoria){
+        if(contS < 0 || contR < 0 || contF < 0){
+            std::cout << "fila vuota";
+            return;
+        }
         if (categoria == 'S'){
             codaS.exit();
             contS--;
@@ -36,12 +40,12 @@ class Ufficio{
             codaF.exit();
             contF--;
         }else{
-            std::cout << "categoria non accettata in questo ufficio" << std::endl;
+            std::cout << "categoria " << categoria << " non accettata in questo ufficio" << std::endl;
         }
     }
 
     void stampUtenti(){
-        std::cout << "\nEcco tutte le persone in fila dei diversi sportelli" << std::endl;
+        std::cout << "\nEcco tutte le persone in fila nei diversi sportelli" << std::endl;
         std::cout << "nello sportello Spedizione ci sono " << contS << " persone" << std::endl;
         std::cout << "nello sportello Ricezione ci sono " << contR << " persone" << std::endl;
         std::cout << "nello sportello Finanziario ci sono " << contF << " persone" << std::endl;
