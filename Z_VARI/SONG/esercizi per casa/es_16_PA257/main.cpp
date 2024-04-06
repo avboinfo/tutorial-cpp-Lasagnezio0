@@ -21,7 +21,7 @@ int main(){
     for(int i = 0; i < len; i++) n[i] = rand()% 100;
     for(int i = 0; i < len; i++) std::cout << n[i] << " ";
 
-    int max = 0;
+    int max = 0;io mo
     max = trovaMassimo(n, len);
     std::cout << "\nIl massimo valore nel vettore è " << max << std::endl;
 }
