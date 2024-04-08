@@ -1,5 +1,4 @@
 /*
-** Vettore.cpp
 ** Classe Coda d'interi - Dondi Alessandro - 6/4/2024
 */
 
