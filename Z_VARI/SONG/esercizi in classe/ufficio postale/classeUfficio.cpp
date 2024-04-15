@@ -37,6 +37,7 @@ class Ufficio{
     void menu(){
         int ext = 0;
         do {
+            
             int risp;
             std::cout << "---------------------------------" << std::endl;
             std::cout << "Ecco il menù dell'ufficio postale" << std::endl;
