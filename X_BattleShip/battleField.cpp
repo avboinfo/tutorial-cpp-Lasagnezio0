@@ -1,27 +1,31 @@
 /*
-** Matrice.cpp 
+** battleField.cpp 
 ** Classe definita da me che spupazza le matrici
-** Dondi Alessandro 3CIN 13/04/2024
+** Dondi Alessandro 3CIN 20/04/2024
 */
 
 #include <iostream>
 
 const int DIM = 10;
+const char SHIP = 'X';
+const char MISS = 'O';
+const char HIT = '*';
+const char VOID = '-';
 
-class Matrice{
+class battleField{
 
     private:
     int m[DIM][DIM];
 
     public:
 
-    Matrice() {
+    battleField() {
         for(int i = 0; i < DIM; i++)
             for(int j = 0; j < DIM; j++) 
                 m[i][j] = 97 + rand()%26;
     }
 
-    Matrice(char c){
+    battleField(char c){
         for(int i = 0; i < DIM; i++)
             for(int j = 0; j < DIM; j++) 
                 m[i][j] = c;
@@ -50,41 +54,20 @@ class Matrice{
     void bomb() {
         int x = rand()%DIM;
         int y =  rand()%DIM;   
-        m[x][y] = '*';
+        m[x][y] = HIT;
     }
     
     void placeHorizontalShip(int len) {
         if(len <= 0 || len >= DIM) return;
         int x = rand()% DIM;
         int y =  rand()% (DIM-len);
-        for(int i = 0; i < len; i++) m[x][y +i] = '0';
+        for(int i = 0; i < len; i++) m[x][y + i] = SHIP;
     }
 
     void placeVerticalShip(int len) {
         if(len <= 0 || len >= DIM) return;
         int x = rand()% (DIM-len);
         int y =  rand()% DIM;
-        for(int i = 0; i < len; i++) m[x + i][y] = '0';
+        for(int i = 0; i < len; i++) m[x + i][y] = SHIP;
     }
 };
-
-int main(){
-    srand(time(NULL));
-    Matrice mappa = Matrice('-');
-    Matrice campo = Matrice('-');
-
-    campo.placeHorizontalShip(3);
-    campo.placeVerticalShip(4);
-    campo.placeHorizontalShip(2);
-    campo.placeVerticalShip(3);
-    campo.placeHorizontalShip(5);
-
-    //lancia 20 bombe a caso(sium)
-    for(int i = 0; i < 20; i++){
-        int x = rand()%DIM;
-        int y =  rand()%DIM;   
-        if(campo.get(x,y) == '0') mappa.put(x,y,'*');
-    }
-    mappa.stampa();
-    return 0;
-}
