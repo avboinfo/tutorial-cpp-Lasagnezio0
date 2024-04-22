@@ -12,6 +12,7 @@ class BattleShip{
     private:
     battleField mappa;
     battleField campo;
+    int x = 0, y = 0;
 
     public:
     BattleShip(){
@@ -23,39 +24,47 @@ class BattleShip{
         campo.placeHorizontalShip(5);
     }
 
+    bool checkWin(){
+        for(int i = 0; i < DIM; i++){
+            for(int j = 0; j < DIM; j++){
+                if(campo.get(x,y) == SHIP) return false;
+            }
+        }
+        return true;
+    }
+
 
     void play(){
-        //lancia 20 bombe a caso(sium)
-        for(int i = 0; i < 20; i++){
-            int x = rand()%DIM;
-            int y =  rand()%DIM;
-            if(campo.get(x,y) == HIT) continue;
-            if(campo.get(x,y) == SHIP){
-                campo.put(x,y, HIT);
-                mappa.put(x,y, HIT);
-            }
-            else mappa.put(x , y , MISS);
-        }
-        mappa.stampa();
 
-        ask();
+        do{
+            mappa.stampa();
+            if(!playHand()) break;
+        }while(!checkWin());
+        
         campo.stampa();
-        mappa.stampa();
+
 
     }
 
-    void ask(){
-        int x = 0, y = 0;
-        std::cout << "Inserisci le coordinate dove lanciare la bomba" << std::endl;
+    bool playHand(){
+        std::cout << "Inserisci le coordinate dove lanciare la bomba(da 1 a "<< DIM << ")" << "\nPuoi inserire 0 per uscire dal programa" << std::endl;
+        
         std::cout << "coordinata [x]: ";
         std::cin >> x;
+        if(x == 0 || x > DIM) return false;
+        else x--;
+        
         std::cout << "\ncoordinata [y]: " << std::endl;
         std::cin >> y;
+        if(y == 0 || y > DIM) return false;
+        else y--;
+
         if(campo.get(x,y) == SHIP){
             campo.put(x,y, HIT);
             mappa.put(x,y, HIT);
         }
         else mappa.put(x , y , MISS);
+        return true;
     }
 
 };

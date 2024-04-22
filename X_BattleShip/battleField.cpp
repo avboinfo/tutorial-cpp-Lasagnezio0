@@ -6,7 +6,7 @@
 
 #include <iostream>
 
-const int DIM = 10;
+const int DIM = 4;
 const char SHIP = 'X';
 const char MISS = 'O';
 const char HIT = '*';
