@@ -1,5 +1,5 @@
 /*
-** battleField.cpp 
+** main.cpp
 ** Il programma che gioca alla battaglia navale
 ** Dondi Alessandro 3CIN 20/04/2024
 */
@@ -10,6 +10,7 @@
 int main(){
 
     std::cout << "Gioco della Battaglia Navale - Buon divertimento" << std::endl;
+    srand(time(NULL));
     BattleShip gioco = BattleShip();
     gioco.play();
     std::cout << "GAME OVER!" << std::endl;
