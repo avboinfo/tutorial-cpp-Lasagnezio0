@@ -19,24 +19,47 @@ int main() {
     vector<int> P(N);
     for (int i = 0; i < N; ++i) cin >> P[i];
 
-    int min_index = 0, m = 0, K = 0, cont = 0, cont2 = 0;
+    int min_index = 0,max_index = 0, m = 0, K = 0, cont = 0, cont2 = 0;
 
+    //se il vettore è grande uno allora non ce bisogno di spostamenti
     if(P.size() == 1){
         K = 0;
         cout << K << endl;
         return 0;
     }
-    for(int i = 0; i < N - 1; i++){
-        if(P[i] < P[i + 1]) m++;
-    }
-    if(m == N - 1){
-        cout << 0 << endl;
-        return 0;
+    //se il vettore è gia ordinato non ce bisogno di spostamenti
+    if(is_sorted(P.begin(), P.end())){
+        K = 0;
+        cout << K << endl;
+        return 0;     
     }
 
-    for(int i = 0; i < N - 1; i++) if(P[i] < P[min_index]) min_index = i;
+    //trovo il valore minore
+    if (P.size() > 1) {
+        for (int i = 1; i < P.size(); ++i) {
+            if (P[i] < P[min_index]) {
+                min_index = i;
+            }
+        }
+    }else{
+        if(P[0] < P[1]) min_index = P[0];
+        else min_index = P[1];
+    }
 
-    for(int i = min_index; i < N - 1; i++){
+    //trovo il valore massimo
+    if (P.size() > 1) {
+        for (int i = 1; i < P.size(); ++i) {
+            if (P[i] > P[max_index]) {
+                max_index = i;
+            }
+        }
+    }else{
+        if(P[0] > P[1]) max_index = P[0];
+        else max_index = P[1];
+    }
+
+
+    for(int i = max_index; i < N - 1; i++){
         if(P[i] < P[i + 1]){
             cont++;
             K++;
@@ -53,7 +76,9 @@ int main() {
         }
     }else{
         K = -1;
-    }   
+    }
+    if(P.back() == P[max_index] && P[0] == P[min_index]) K = -1;
+    if(P[0] < P[N - 1]) K = -1;   
     cout << K << endl;
 
     return 0;
