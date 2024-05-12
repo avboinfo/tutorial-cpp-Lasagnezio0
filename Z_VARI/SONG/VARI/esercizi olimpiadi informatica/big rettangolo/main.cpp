@@ -16,7 +16,7 @@ int main() {
     int N;
     cin >> N;
     
-    vector<long> S(N);
+    vector<int> S(N);
     for (int i = 0; i < N; ++i)
         cin >> S[i];
     
@@ -25,6 +25,10 @@ int main() {
     
     // INSERT YOUR CODE HERE
     long dupl1 = 0, dupl2 = 0;
+    if(S.size() < 4){
+        cout << 0 << endl;
+        return 0;
+    }
     if(S[0] == S[1] && S[0] == S[2] && S[0] == S[3]){
         A = (long long)S[0] * S[1];
         cout << A << endl;
@@ -50,10 +54,9 @@ int main() {
             break;
         }
     }
-    if(dupl2 == S[S.size()]) dupl2 = 0;
 
 
-    A = (long long)dupl1 * dupl2;
+    A = dupl1 * dupl2;
     cout << A << endl;
 
     return 0;
