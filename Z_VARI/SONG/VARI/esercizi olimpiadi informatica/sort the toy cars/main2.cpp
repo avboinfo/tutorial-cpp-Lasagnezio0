@@ -77,7 +77,9 @@ int main() {
     }else{
         K = -1;
     }
+    //se è ordinato all inverso
     if(P.back() == P[max_index] && P[0] == P[min_index]) K = -1;
+    //se va tutto bene
     if(P[0] < P[N - 1]) K = -1;   
     cout << K << endl;
 
