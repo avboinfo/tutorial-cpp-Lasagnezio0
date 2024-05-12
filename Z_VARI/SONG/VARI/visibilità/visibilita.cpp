@@ -17,14 +17,14 @@ class Visibilita{
         void setB(int x){b = x;}
 };
 
-class Sottovisibilita : public Visibilita{
+/*class Sottovisibilita : public Visibilita{
     public:
         int d = 12;
 
     void prova(){
         cout << a << " " << c << " " << d << endl;
     }
-};
+};*/
 
 int main(){
     
@@ -34,7 +34,7 @@ int main(){
     cout << v.getB() << endl;
     //v.c = 5;
 
-    Sottovisibilita va;
-    va.prova();
+    //Sottovisibilita va;
+    //va.prova();
     return 0;
 }
