@@ -20,6 +20,7 @@ int main() {
     
     long long totalCurrentPrice = 0;
     long long totalDesiredPrice = K * N;
+    long long  cont = 0;
 
     for (int i = 0; i < N; ++i)
         totalCurrentPrice += P[i];
@@ -27,35 +28,26 @@ int main() {
     int ans = 0;
     if(totalCurrentPrice > totalDesiredPrice){
         for(int i = 0; i < N; i++){
-            while(P[i] > 1){
+            cont += P[i];
+            while(P[i] > totalDesiredPrice - totalCurrentPrice && P[i] > 0){
                 P[i]--;
             }
             ans++;
+            totalCurrentPrice = 0;
             for (int i = 0; i < N; ++i) totalCurrentPrice += P[i];
-            if(totalCurrentPrice < totalDesiredPrice){
-                int diff = totalDesiredPrice - totalCurrentPrice;
-                P[i] += diff;
-                break;
-            }else if(totalCurrentPrice == totalDesiredPrice){
-                break;
-            } 
+            if(totalCurrentPrice == totalDesiredPrice - cont) break;
         }
     }else if(totalCurrentPrice < totalDesiredPrice){
         for(int i = 0; i < N; i++){
-            while(P[i] < totalDesiredPrice){
+            cont += P[i];
+            while(P[i] < totalDesiredPrice - totalCurrentPrice && P[i] < INT_MAX){
                 P[i]++;
             }
             ans++;
-            
-            for (int i = 0; i < N; ++i) totalCurrentPrice += P[i];
-            if(totalCurrentPrice > totalDesiredPrice){
-                int diff = totalCurrentPrice - totalDesiredPrice;
-                P[i] -= diff;
-                break;
-            }else if(totalCurrentPrice == totalDesiredPrice) break;
+            totalCurrentPrice = 0;
+            for (int i = 0; i < N; ++i) totalCurrentPrice += P[i];       
+            if(totalCurrentPrice + cont == totalDesiredPrice) break;
         }
-    }else{
-        ans = 0;
     }
     
     cout << ans << endl;
