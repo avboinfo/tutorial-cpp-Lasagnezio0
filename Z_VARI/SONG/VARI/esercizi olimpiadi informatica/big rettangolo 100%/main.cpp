@@ -16,7 +16,7 @@ int main() {
     int N;
     cin >> N;
     
-    vector<int> S(N);
+    vector<long> S(N);
     for (int i = 0; i < N; ++i)
         cin >> S[i];
     

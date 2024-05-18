@@ -21,12 +21,32 @@ int main() {
         cin >> S[i];
 
     // insert your code here
-    int prima_pulizia = S[N - 1];
-    for(int i = N - 2; i > 0; i--){
-        if(prima_pulizia > S[i]){
-            S.erase(S.begin() + i);
-            N--;
+    if(N == 0){
+        cout << 0 << endl;
+        return 0;
+    }
+    if(N == 1){
+        cout << 1 << endl;
+        return 0;
+    }
+    if(N == 2){
+        if(S[1] > S[0]){
+            cout << 1 << endl;
+            return 0;
         }
+        cout << 2 << endl;
+        return 0;
+    }
+    int check = N;
+    
+    for(int i = N - 1;i > 0; i--){
+        for(int j = N - 2; j > 0; j--){
+            if(S[j] < S[i]){
+                S.erase(S.begin() + j);
+                N--;
+            }
+        }
+        if(N == check) break;
     }
     
     cout << N << endl; // print the result

@@ -27,6 +27,7 @@ int main() {
         cout << K << endl;
         return 0;
     }
+    
     //se il vettore è gia ordinato non ce bisogno di spostamenti
     if(is_sorted(P.begin(), P.end())){
         K = 0;
