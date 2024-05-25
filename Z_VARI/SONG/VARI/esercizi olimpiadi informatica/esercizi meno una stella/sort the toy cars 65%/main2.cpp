@@ -37,7 +37,7 @@ int main() {
 
     //trovo il valore minore
     if (P.size() > 1) {
-        for (int i = 1; i < P.size(); ++i) {
+        for (int i = 1; i < P.size(); i++) {
             if (P[i] < P[min_index]) {
                 min_index = i;
             }
@@ -49,7 +49,7 @@ int main() {
 
     //trovo il valore massimo
     if (P.size() > 1) {
-        for (int i = 1; i < P.size(); ++i) {
+        for (int i = 1; i < P.size(); i++) {
             if (P[i] > P[max_index]) {
                 max_index = i;
             }
@@ -60,7 +60,7 @@ int main() {
     }
 
 
-    for(int i = max_index; i < N - 1; i++){
+    for(int i = max_index; i < N - 1; ++i){
         if(P[i] < P[i + 1]){
             cont++;
             K++;
@@ -69,7 +69,7 @@ int main() {
     }
 
     if(cont == N - min_index - 1){
-        for(int i = 0; i < min_index; i++){
+        for(int i = 0; i < min_index; ++i){
             if(P[i] > P[i + 1]){
                 cont2++;
                 K++;
